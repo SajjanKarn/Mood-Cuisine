@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Urbanist } from "next/font/google";
 import "./globals.css";
+import Navbar from "./Navbar";
 
 const space = Space_Grotesk({
   weight: ["300", "400", "500", "600", "700"],
@@ -35,6 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${space.variable} ${urbanist.variable} antialiased`}>
+        <Navbar />
         <main>{children}</main>
       </body>
     </html>
