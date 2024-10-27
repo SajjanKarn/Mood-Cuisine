@@ -1,5 +1,22 @@
 import type { Metadata } from "next";
+import { Space_Grotesk, Urbanist } from "next/font/google";
 import "./globals.css";
+
+const space = Space_Grotesk({
+  weight: ["300", "400", "500", "600", "700"],
+  fallback: ["sans-serif"],
+  subsets: ["latin"],
+  variable: "--font-space",
+  display: "swap",
+});
+
+const urbanist = Urbanist({
+  weight: ["300", "400", "500", "600", "700"],
+  fallback: ["sans-serif"],
+  subsets: ["latin"],
+  variable: "--font-urbanist",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title:
@@ -17,7 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`antialiased`}>
+      <body className={`${space.variable} ${urbanist.variable} antialiased`}>
         <main>{children}</main>
       </body>
     </html>
