@@ -4,17 +4,32 @@ type CustomButtonProps = {
   onClick?: () => void;
   children: React.ReactNode;
   link?: string;
+  variant?: "primary" | "secondary";
 };
 
-const CustomButton = ({ children, onClick = () => {} }: CustomButtonProps) => {
-  return <Button onClick={onClick}>{children}</Button>;
+const CustomButton = ({
+  children,
+  onClick = () => {},
+  variant = "primary",
+}: CustomButtonProps) => {
+  return (
+    <Button onClick={onClick} variant={variant}>
+      {children}
+    </Button>
+  );
 };
 
-const Button = ({ children, onClick = () => {} }: CustomButtonProps) => {
+const Button = ({
+  children,
+  onClick = () => {},
+  variant,
+}: CustomButtonProps) => {
   return (
     <button
       onClick={onClick}
-      className="bg-customSecondary font-space font-bold px-5 py-2 rounded-lg border-[2px] border-black button-shadow"
+      className={`${
+        variant === "primary" ? "bg-customSecondary" : "bg-customTertiary"
+      } font-space font-bold px-5 py-2 rounded-lg border-[2px] border-black button-shadow`}
     >
       {children}
     </button>
