@@ -138,4 +138,8 @@ body {
     box-shadow: 2px 2px 0px #000;
     text-decoration: underline;
   }
+
+  .neubrutalism-shadow {
+    box-shadow: 8px 8px 0px #000;
+  }
 }
