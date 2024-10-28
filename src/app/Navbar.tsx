@@ -19,7 +19,6 @@ type NavbarLink = {
 const links: NavbarLink[] = [
   { href: "/", label: "Home" },
   { href: "/recipe", label: "Recipes" },
-  { href: "/features", label: "Features" },
   { href: "/contact", label: "Contact" },
 ];
 

@@ -5,8 +5,11 @@ import {
   NeubrutalismSelect,
 } from "@/components/ui";
 import Form from "next/form";
+import { useParams } from "next/navigation";
 
 const RecipeMood = () => {
+  const mood = useParams().mood;
+
   const cuisineOptions = [
     { label: "Italian", value: "Italian" },
     { label: "Mexican", value: "Mexican" },
@@ -65,6 +68,13 @@ const RecipeMood = () => {
         className="max-w-md mx-auto mt-10 space-y-5"
       >
         <CustomButton link="/recipe">Go Back</CustomButton>
+        <NeubrutalismInput
+          label="Mood"
+          placeholder="Mood"
+          name="currentMood" // Use name attribute
+          value={(mood as string) || ""}
+        />
+
         <NeubrutalismInput
           label="Available Ingredients"
           placeholder="Include or avoid ingredients"
