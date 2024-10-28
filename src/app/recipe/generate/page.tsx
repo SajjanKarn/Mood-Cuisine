@@ -24,6 +24,12 @@ const GenerateRecipe = async ({
   searchParams: Promise<SearchRecipeProps>;
 }) => {
   const params = await searchParams;
+
+  // check if required fields are missing
+  if (!params.currentMood || !params.cuisine || !params.mealType) {
+    throw new Error("Missing required fields");
+  }
+
   const prompt = `
 Generate 5 unique and detailed recipes based on the following preferences and mood:
 - **Mood**: ${params.currentMood}
@@ -52,6 +58,9 @@ Ensure that the recipes are distinct from each other and cater to the specified 
 `;
 
   const recipes = await model.generateContent(prompt);
+  if (!recipes) {
+    throw new Error("No recipes found");
+  }
   const content = recipes.response.text();
 
   return (
