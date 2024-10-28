@@ -18,7 +18,7 @@ type NavbarLink = {
 
 const links: NavbarLink[] = [
   { href: "/", label: "Home" },
-  { href: "/recipes", label: "Recipes" },
+  { href: "/recipe", label: "Recipes" },
   { href: "/features", label: "Features" },
   { href: "/contact", label: "Contact" },
 ];
@@ -28,7 +28,9 @@ const Navbar = () => {
     <>
       <div className="flex justify-between items-center p-5 border-black border-[3px] bg-white">
         <div>
-          <h1 className="font-space text-2xl font-bold">MoodCuisine</h1>
+          <Link href="/" className="cursor-pointer">
+            <h1 className="font-space text-2xl font-bold">MoodCuisine</h1>
+          </Link>
         </div>
         <nav>
           <ul className="hidden md:flex items-center gap-x-8 font-urbanist font-medium text-lg">
