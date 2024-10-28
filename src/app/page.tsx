@@ -23,7 +23,7 @@ const Home = () => {
         <img
           src="https://cdn-icons-png.flaticon.com/512/64/64788.png"
           alt="chef"
-          className="w-20"
+          className="md:w-20 w-14 py-5 md:py-0"
         />
       </div>
       <div>
