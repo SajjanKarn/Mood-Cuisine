@@ -1,20 +1,12 @@
 "use client";
-import { useState } from "react";
 import {
   CustomButton,
   NeubrutalismInput,
   NeubrutalismSelect,
 } from "@/components/ui";
+import Form from "next/form";
 
 const RecipeMood = () => {
-  const [cuisine, setCuisine] = useState("");
-  const [dietaryPreference, setDietaryPreference] = useState("");
-  const [mealType, setMealType] = useState("");
-  const [availableIngredients, setAvailableIngredients] = useState("");
-  const [cookingTime, setCookingTime] = useState("");
-  const [spicinessLevel, setSpicinessLevel] = useState("");
-  const [servingSize, setServingSize] = useState("");
-
   const cuisineOptions = [
     { label: "Italian", value: "Italian" },
     { label: "Mexican", value: "Mexican" },
@@ -59,12 +51,6 @@ const RecipeMood = () => {
     { label: "Party", value: "Party" },
   ];
 
-  const handleSelectChange =
-    (setter: React.Dispatch<React.SetStateAction<string>>) =>
-    (value: string) => {
-      setter(value);
-    };
-
   return (
     <div className="bg-customSecondary min-h-screen p-10">
       <h1 className="text-center text-3xl lg:text-4xl font-bold font-space">
@@ -74,13 +60,15 @@ const RecipeMood = () => {
         Customize your recipe based on your preferences
       </p>
 
-      <form className="max-w-md mx-auto mt-10 space-y-5">
+      <Form
+        action="/recipe/generate"
+        className="max-w-md mx-auto mt-10 space-y-5"
+      >
         <CustomButton link="/recipe">Go Back</CustomButton>
         <NeubrutalismInput
           label="Available Ingredients"
           placeholder="Include or avoid ingredients"
-          value={availableIngredients}
-          onChange={setAvailableIngredients}
+          name="availableIngredients" // Use name attribute
         />
 
         <div>
@@ -90,8 +78,7 @@ const RecipeMood = () => {
           <NeubrutalismSelect
             options={cuisineOptions}
             placeholder="Select Cuisine"
-            onChange={handleSelectChange(setCuisine)}
-            selectedValue={cuisine}
+            name="cuisine" // Use name attribute
           />
         </div>
 
@@ -102,8 +89,7 @@ const RecipeMood = () => {
           <NeubrutalismSelect
             options={dietaryOptions}
             placeholder="Select Preference"
-            onChange={handleSelectChange(setDietaryPreference)}
-            selectedValue={dietaryPreference}
+            name="dietaryPreference" // Use name attribute
           />
         </div>
 
@@ -112,8 +98,7 @@ const RecipeMood = () => {
           <NeubrutalismSelect
             options={mealTypeOptions}
             placeholder="Select Meal Type"
-            onChange={handleSelectChange(setMealType)}
-            selectedValue={mealType}
+            name="mealType" // Use name attribute
           />
         </div>
 
@@ -124,8 +109,7 @@ const RecipeMood = () => {
           <NeubrutalismSelect
             options={cookingTimeOptions}
             placeholder="Select Cooking Time"
-            onChange={handleSelectChange(setCookingTime)}
-            selectedValue={cookingTime}
+            name="cookingTime" // Use name attribute
           />
         </div>
 
@@ -136,8 +120,7 @@ const RecipeMood = () => {
           <NeubrutalismSelect
             options={spicinessOptions}
             placeholder="Select Spiciness Level"
-            onChange={handleSelectChange(setSpicinessLevel)}
-            selectedValue={spicinessLevel}
+            name="spicinessLevel" // Use name attribute
           />
         </div>
 
@@ -148,8 +131,7 @@ const RecipeMood = () => {
           <NeubrutalismSelect
             options={servingSizeOptions}
             placeholder="Select Serving Size"
-            onChange={handleSelectChange(setServingSize)}
-            selectedValue={servingSize}
+            name="servingSize" // Use name attribute
           />
         </div>
         <div className="flex justify-center">
@@ -157,7 +139,7 @@ const RecipeMood = () => {
             Generate Recipe
           </CustomButton>
         </div>
-      </form>
+      </Form>
     </div>
   );
 };

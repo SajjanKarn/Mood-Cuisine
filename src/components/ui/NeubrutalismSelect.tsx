@@ -11,18 +11,24 @@ import {
 interface NeubrutalismSelectProps {
   options: { label: string; value: string }[];
   placeholder: string;
-  onChange: (value: string) => void;
-  selectedValue: string;
+  onChange?: (value: string) => void;
+  selectedValue?: string;
+  name?: string;
 }
 
 const NeubrutalismSelect: React.FC<NeubrutalismSelectProps> = ({
+  name,
   options,
   placeholder,
-  onChange,
-  selectedValue,
+  onChange = () => {},
+  selectedValue = "",
 }) => {
   return (
-    <Select onValueChange={onChange} value={selectedValue}>
+    <Select
+      name={name}
+      onValueChange={onChange}
+      value={selectedValue || undefined}
+    >
       <SelectTrigger className="w-full neubrutalism-border neubrutalism-shadow rounded-lg bg-customPrimary text-black font-semibold font-space">
         <SelectValue placeholder={placeholder} />
       </SelectTrigger>
