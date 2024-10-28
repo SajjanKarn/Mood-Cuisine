@@ -7,6 +7,9 @@ type CustomButtonProps = {
   children: React.ReactNode;
   link?: string;
   variant?: "primary" | "secondary";
+  // add ...props
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  [x: string]: any;
 };
 
 const CustomButton = ({
@@ -14,13 +17,14 @@ const CustomButton = ({
   onClick = () => {},
   variant = "primary",
   link,
+  ...props
 }: CustomButtonProps) => {
   return link ? (
     <Link href={link}>
       <Button variant={variant}>{children}</Button>
     </Link>
   ) : (
-    <Button onClick={onClick} variant={variant}>
+    <Button onClick={onClick} variant={variant} {...props}>
       {children}
     </Button>
   );

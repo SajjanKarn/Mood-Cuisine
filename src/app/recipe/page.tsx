@@ -12,6 +12,7 @@ import {
   LucideTarget,
   LucideClock,
 } from "lucide-react";
+import Link from "next/link";
 
 type MoodCard = {
   mood: string;
@@ -45,7 +46,9 @@ const RecipePage = () => {
       </p>
       <div className="grid grid-cols-2 lg:grid-cols-auto-fill-200 gap-5 lg:gap-10 mt-10">
         {moods.map((mood) => (
-          <MoodCard key={mood.mood} mood={mood} />
+          <Link key={mood.mood} href={`/recipe/${mood.mood.toLowerCase()}`}>
+            <MoodCard mood={mood} />
+          </Link>
         ))}
       </div>
     </div>
