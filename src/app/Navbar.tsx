@@ -1,5 +1,5 @@
 import { CustomButton } from "@/components/ui";
-import { LucideMenu, LucideSearch } from "lucide-react";
+import { LucideForkKnife, LucideMenu, LucideSearch } from "lucide-react";
 import Link from "next/link";
 
 import {
@@ -27,7 +27,13 @@ const Navbar = () => {
     <>
       <div className="flex justify-between items-center p-5 border-black border-[3px] bg-white">
         <div>
-          <Link href="/" className="cursor-pointer">
+          <Link
+            href="/"
+            className="flex hover:underline items-center gap-2 cursor-pointer"
+          >
+            <div className="bg-customPrimary p-2 rounded-sm">
+              <LucideForkKnife size={24} />
+            </div>
             <h1 className="font-space text-2xl font-bold">MoodCuisine</h1>
           </Link>
         </div>

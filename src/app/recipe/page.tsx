@@ -11,6 +11,13 @@ import {
   LucideHeart,
   LucideTarget,
   LucideClock,
+  LucideCompass, // New icons
+  LucideCheckCircle,
+  LucideRainbow,
+  LucideCloud,
+  LucideSun,
+  LucidePalette,
+  LucideGamepad2,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -33,6 +40,17 @@ const moods: MoodCard[] = [
   { mood: "Romantic", image: <LucideHeart />, backgroundColor: "#FFC0CB" },
   { mood: "Focused", image: <LucideTarget />, backgroundColor: "#DDA0DD" },
   { mood: "Nostalgic", image: <LucideClock />, backgroundColor: "#F4A460" },
+  { mood: "Adventurous", image: <LucideCompass />, backgroundColor: "#FFA07A" },
+  {
+    mood: "Confident",
+    image: <LucideCheckCircle />,
+    backgroundColor: "#32CD32",
+  },
+  { mood: "Hopeful", image: <LucideRainbow />, backgroundColor: "#FFD700" },
+  { mood: "Pensive", image: <LucideCloud />, backgroundColor: "#B0E0E6" },
+  { mood: "Peaceful", image: <LucideSun />, backgroundColor: "#F0E68C" },
+  { mood: "Creative", image: <LucidePalette />, backgroundColor: "#FFB6C1" },
+  { mood: "Playful", image: <LucideGamepad2 />, backgroundColor: "#F08080" },
 ];
 
 const RecipePage = () => {
@@ -40,7 +58,7 @@ const RecipePage = () => {
     <div className="bg-customSecondary lg:h-screen px-5 py-10 lg:p-10">
       <h1 className="text-center text-4xl font-bold font-space">
         Generate Recipe
-      </h1>{" "}
+      </h1>
       <p className="text-center text-base lg:text-lg font-medium font-urbanist mt-3">
         With our smart AI, we can generate a recipe for you based on your mood
       </p>

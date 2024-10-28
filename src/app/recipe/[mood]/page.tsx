@@ -6,53 +6,22 @@ import {
 } from "@/components/ui";
 import Form from "next/form";
 import { useParams } from "next/navigation";
+import {
+  cuisineOptions,
+  dietaryOptions,
+  mealTypeOptions,
+  cookingTimeOptions,
+  spicinessOptions,
+  servingSizeOptions,
+  cookingMethodOptions,
+  allergyOptions,
+  flavorProfileOptions,
+  timeOfDayOptions,
+  skillLevelOptions,
+} from "@/constants/recipeOptions";
 
 const RecipeMood = () => {
   const mood = useParams().mood;
-
-  const cuisineOptions = [
-    { label: "Italian", value: "Italian" },
-    { label: "Mexican", value: "Mexican" },
-    { label: "Asian", value: "Asian" },
-    { label: "Mediterranean", value: "Mediterranean" },
-  ];
-
-  const dietaryOptions = [
-    { label: "Vegetarian", value: "Vegetarian" },
-    { label: "Vegan", value: "Vegan" },
-    { label: "Gluten-Free", value: "Gluten-Free" },
-    { label: "Keto", value: "Keto" },
-    { label: "Dairy-Free", value: "Dairy-Free" },
-  ];
-
-  const mealTypeOptions = [
-    { label: "Breakfast", value: "Breakfast" },
-    { label: "Lunch", value: "Lunch" },
-    { label: "Dinner", value: "Dinner" },
-    { label: "Snack", value: "Snack" },
-    { label: "Dessert", value: "Dessert" },
-  ];
-
-  const cookingTimeOptions = [
-    { label: "15 min", value: "15 min" },
-    { label: "30 min", value: "30 min" },
-    { label: "45 min", value: "45 min" },
-    { label: "1 hour", value: "1 hour" },
-  ];
-
-  const spicinessOptions = [
-    { label: "Mild", value: "Mild" },
-    { label: "Medium", value: "Medium" },
-    { label: "Spicy", value: "Spicy" },
-    { label: "Very Spicy", value: "Very Spicy" },
-  ];
-
-  const servingSizeOptions = [
-    { label: "Single", value: "Single" },
-    { label: "Couple", value: "Couple" },
-    { label: "Family", value: "Family" },
-    { label: "Party", value: "Party" },
-  ];
 
   return (
     <div className="bg-customSecondary min-h-screen p-10">
@@ -71,14 +40,15 @@ const RecipeMood = () => {
         <NeubrutalismInput
           label="Mood"
           placeholder="Mood"
-          name="currentMood" // Use name attribute
+          name="currentMood"
           value={(mood as string) || ""}
+          required // Required field
         />
 
         <NeubrutalismInput
           label="Available Ingredients"
           placeholder="Include or avoid ingredients"
-          name="availableIngredients" // Use name attribute
+          name="availableIngredients"
         />
 
         <div>
@@ -88,7 +58,8 @@ const RecipeMood = () => {
           <NeubrutalismSelect
             options={cuisineOptions}
             placeholder="Select Cuisine"
-            name="cuisine" // Use name attribute
+            name="cuisine"
+            required // Required field
           />
         </div>
 
@@ -99,7 +70,8 @@ const RecipeMood = () => {
           <NeubrutalismSelect
             options={dietaryOptions}
             placeholder="Select Preference"
-            name="dietaryPreference" // Use name attribute
+            name="dietaryPreference"
+            required // Required field
           />
         </div>
 
@@ -108,7 +80,8 @@ const RecipeMood = () => {
           <NeubrutalismSelect
             options={mealTypeOptions}
             placeholder="Select Meal Type"
-            name="mealType" // Use name attribute
+            name="mealType"
+            required // Required field
           />
         </div>
 
@@ -119,7 +92,8 @@ const RecipeMood = () => {
           <NeubrutalismSelect
             options={cookingTimeOptions}
             placeholder="Select Cooking Time"
-            name="cookingTime" // Use name attribute
+            name="cookingTime"
+            required // Required field
           />
         </div>
 
@@ -130,7 +104,8 @@ const RecipeMood = () => {
           <NeubrutalismSelect
             options={spicinessOptions}
             placeholder="Select Spiciness Level"
-            name="spicinessLevel" // Use name attribute
+            name="spicinessLevel"
+            required // Required field
           />
         </div>
 
@@ -141,9 +116,64 @@ const RecipeMood = () => {
           <NeubrutalismSelect
             options={servingSizeOptions}
             placeholder="Select Serving Size"
-            name="servingSize" // Use name attribute
+            name="servingSize"
+            required // Required field
           />
         </div>
+
+        <div>
+          <label className="block font-semibold font-urbanist">
+            Cooking Method
+          </label>
+          <NeubrutalismSelect
+            options={cookingMethodOptions}
+            placeholder="Select Cooking Method"
+            name="cookingMethod"
+          />
+        </div>
+
+        <div>
+          <label className="block font-semibold font-urbanist">Allergies</label>
+          <NeubrutalismSelect
+            options={allergyOptions}
+            placeholder="Select Allergies"
+            name="allergies"
+          />
+        </div>
+
+        <div>
+          <label className="block font-semibold font-urbanist">
+            Flavor Profile
+          </label>
+          <NeubrutalismSelect
+            options={flavorProfileOptions}
+            placeholder="Select Flavor Profile"
+            name="flavorProfile"
+          />
+        </div>
+
+        <div>
+          <label className="block font-semibold font-urbanist">
+            Time of Day
+          </label>
+          <NeubrutalismSelect
+            options={timeOfDayOptions}
+            placeholder="Select Time of Day"
+            name="timeOfDay"
+          />
+        </div>
+
+        <div>
+          <label className="block font-semibold font-urbanist">
+            Cooking Skill Level
+          </label>
+          <NeubrutalismSelect
+            options={skillLevelOptions}
+            placeholder="Select Skill Level"
+            name="skillLevel"
+          />
+        </div>
+
         <div className="flex justify-center">
           <CustomButton type="submit" variant="secondary">
             Generate Recipe

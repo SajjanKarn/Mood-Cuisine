@@ -11,6 +11,11 @@ type SearchRecipeProps = {
   cookingTime: string;
   spicinessLevel: string;
   servingSize: string;
+  cookingMethod?: string; // Optional
+  allergies?: string; // Optional
+  flavorProfile?: string; // Optional
+  timeOfDay?: string; // Optional
+  skillLevel?: string; // Optional
 };
 
 const GenerateRecipe = async ({
@@ -29,6 +34,11 @@ Generate 5 unique and detailed recipes based on the following preferences and mo
 - **Cooking Time**: ${params.cookingTime}
 - **Spiciness Level**: ${params.spicinessLevel}
 - **Serving Size**: ${params.servingSize}
+- **Cooking Method**: ${params.cookingMethod || "Any"}  
+- **Allergies**: ${params.allergies || "None"} 
+- **Flavor Profile**: ${params.flavorProfile || "Any"} 
+- **Time of Day**: ${params.timeOfDay || "Any"} 
+- **Cooking Skill Level**: ${params.skillLevel || "Any"} 
 
 Each recipe should include:
 1. A creative and appealing title with large size.
@@ -52,7 +62,11 @@ Ensure that the recipes are distinct from each other and cater to the specified 
         Here are some recipes you might like based on your preferences:
       </h1>
       <div className="text-lg font-medium font-urbanist">
-        {content && <MarkdownRender content={content} />}
+        {content ? (
+          <MarkdownRender content={content} />
+        ) : (
+          <p>No recipes found.</p>
+        )}
       </div>
     </div>
   );

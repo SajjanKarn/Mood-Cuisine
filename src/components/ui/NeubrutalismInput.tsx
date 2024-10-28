@@ -9,6 +9,8 @@ interface NeubrutalismInputProps {
   label?: string; // Optional label
   name?: string; // Input name
   disabled?: boolean; // Disabled state
+  // eslint-disable-next-line
+  [key: string]: any; // Additional props
 }
 
 const NeubrutalismInput: React.FC<NeubrutalismInputProps> = ({
@@ -19,6 +21,7 @@ const NeubrutalismInput: React.FC<NeubrutalismInputProps> = ({
   label,
   name,
   disabled,
+  ...props
 }) => {
   return (
     <div className="flex flex-col">
@@ -35,6 +38,7 @@ const NeubrutalismInput: React.FC<NeubrutalismInputProps> = ({
         className="w-full neubrutalism-border neubrutalism-shadow rounded-md bg-white text-black font-bold p-3 focus:outline-none focus:neubrutalism-hover font-space"
         name={name}
         disabled={disabled}
+        {...props}
       />
     </div>
   );

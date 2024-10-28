@@ -14,6 +14,8 @@ interface NeubrutalismSelectProps {
   onChange?: (value: string) => void;
   selectedValue?: string;
   name?: string;
+  // eslint-disable-next-line
+  required?: boolean;
 }
 
 const NeubrutalismSelect: React.FC<NeubrutalismSelectProps> = ({
@@ -22,12 +24,14 @@ const NeubrutalismSelect: React.FC<NeubrutalismSelectProps> = ({
   placeholder,
   onChange = () => {},
   selectedValue = "",
+  required = false,
 }) => {
   return (
     <Select
       name={name}
       onValueChange={onChange}
       value={selectedValue || undefined}
+      required={required}
     >
       <SelectTrigger className="w-full neubrutalism-border neubrutalism-shadow rounded-lg bg-customPrimary text-black font-semibold font-space">
         <SelectValue placeholder={placeholder} />
