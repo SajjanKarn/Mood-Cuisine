@@ -56,8 +56,8 @@ const Navbar = () => {
                 {/* navbar links */}
                 <ul className="flex flex-col items-start gap-3 mt-5 font-urbanist font-semibold">
                   {links.map((link) => (
-                    <li key={link.href}>
-                      <SheetClose asChild>
+                    <li key={link.href} className="w-full text-left">
+                      <SheetClose asChild className="block">
                         <Link href={link.href} className="hover:underline">
                           {link.label}
                         </Link>
