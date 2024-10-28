@@ -139,7 +139,15 @@ body {
     text-decoration: underline;
   }
 
+  .neubrutalism-border {
+    border: 4px solid #000;
+  }
+
   .neubrutalism-shadow {
-    box-shadow: 8px 8px 0px #000;
+    box-shadow: 6px 6px 0px #000;
+  }
+
+  .neubrutalism-hover {
+    box-shadow: 3px 3px 0px #000;
   }
 }

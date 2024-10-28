@@ -9,6 +9,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      gridTemplateColumns: {
+        "auto-fill-200": "repeat(auto-fill, minmax(200px, 1fr))",
+      },
       colors: {
         customPrimary: "#C0A1EF",
         customSecondary: "#FFEBA7",

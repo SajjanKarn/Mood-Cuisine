@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 type CustomButtonProps = {
   onClick?: () => void;
   children: React.ReactNode;
@@ -11,8 +13,13 @@ const CustomButton = ({
   children,
   onClick = () => {},
   variant = "primary",
+  link,
 }: CustomButtonProps) => {
-  return (
+  return link ? (
+    <Link href={link}>
+      <Button variant={variant}>{children}</Button>
+    </Link>
+  ) : (
     <Button onClick={onClick} variant={variant}>
       {children}
     </Button>

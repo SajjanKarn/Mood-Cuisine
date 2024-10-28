@@ -17,7 +17,7 @@ const Home = () => {
         </p>
 
         <div className="flex items-center gap-5 mt-4">
-          <CustomButton>Explore Recipes</CustomButton>
+          <CustomButton link="/recipe">Explore Recipes</CustomButton>
           <CustomButton variant="secondary">Join Community</CustomButton>
         </div>
         <img
