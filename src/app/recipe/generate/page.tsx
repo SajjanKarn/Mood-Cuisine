@@ -1,4 +1,4 @@
-import model from "@/model/model";
+import axios from "axios";
 import MarkdownRender from "./MarkdownRender";
 import { CustomButton } from "@/components/ui";
 
@@ -30,38 +30,16 @@ const GenerateRecipe = async ({
     throw new Error("Missing required fields");
   }
 
-  const prompt = `
-Generate 5 unique and detailed recipes based on the following preferences and mood:
-- **Mood**: ${params.currentMood}
-- **Available Ingredients**: ${params.availableIngredients || "None"}
-- **Cuisine Type**: ${params.cuisine}
-- **Dietary Preference**: ${params.dietaryPreference || "None"}
-- **Meal Type**: ${params.mealType}
-- **Cooking Time**: ${params.cookingTime || "Any"}
-- **Spiciness Level**: ${params.spicinessLevel}
-- **Serving Size**: ${params.servingSize}
-- **Cooking Method**: ${params.cookingMethod || "Any"}  
-- **Allergies**: ${params.allergies || "None"} 
-- **Flavor Profile**: ${params.flavorProfile || "Any"} 
-- **Time of Day**: ${params.timeOfDay || "Any"} 
-- **Cooking Skill Level**: ${params.skillLevel || "Any"} 
-
-Each recipe should include:
-1. A creative and appealing title with large size.
-2. A brief description of the dish.
-3. A list of ingredients with specific quantities.
-4. Step-by-step cooking instructions.
-5. Any additional tips or variations that might enhance the dish.
-6. Based on the mood and preferences, suggest a suitable drink or side dish to complement the meal.
-
-Ensure that the recipes are distinct from each other and cater to the specified preferences. The output should be formatted in Markdown for easy reading and presentation.
-`;
-
-  const recipes = await model.generateContent(prompt);
-  if (!recipes) {
-    throw new Error("No recipes found");
-  }
-  const content = recipes.response.text();
+  const res = await axios.post(
+    (process.env.PUBLIC_URL as string) + "/api/recipe/generate",
+    params,
+    {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
+  const content = res.data;
 
   return (
     <div className="bg-customSecondary p-10 font-urbanist">
