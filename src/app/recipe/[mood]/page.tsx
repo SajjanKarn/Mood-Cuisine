@@ -46,7 +46,7 @@ const RecipeMood = () => {
         />
 
         <NeubrutalismInput
-          label="Available Ingredients"
+          label="Available Ingredients (optional)"
           placeholder="Include or avoid ingredients"
           name="availableIngredients"
         />
@@ -65,13 +65,12 @@ const RecipeMood = () => {
 
         <div>
           <label className="block font-semibold font-urbanist">
-            Dietary Preference
+            Dietary Preference (optional)
           </label>
           <NeubrutalismSelect
             options={dietaryOptions}
             placeholder="Select Preference"
             name="dietaryPreference"
-            required // Required field
           />
         </div>
 
@@ -87,13 +86,12 @@ const RecipeMood = () => {
 
         <div>
           <label className="block font-semibold font-urbanist">
-            Cooking Time
+            Cooking Time (optional)
           </label>
           <NeubrutalismSelect
             options={cookingTimeOptions}
             placeholder="Select Cooking Time"
             name="cookingTime"
-            required // Required field
           />
         </div>
 
@@ -123,7 +121,7 @@ const RecipeMood = () => {
 
         <div>
           <label className="block font-semibold font-urbanist">
-            Cooking Method
+            Cooking Method (optional)
           </label>
           <NeubrutalismSelect
             options={cookingMethodOptions}
@@ -133,7 +131,9 @@ const RecipeMood = () => {
         </div>
 
         <div>
-          <label className="block font-semibold font-urbanist">Allergies</label>
+          <label className="block font-semibold font-urbanist">
+            Allergies (optional)
+          </label>
           <NeubrutalismSelect
             options={allergyOptions}
             placeholder="Select Allergies"
@@ -143,7 +143,7 @@ const RecipeMood = () => {
 
         <div>
           <label className="block font-semibold font-urbanist">
-            Flavor Profile
+            Flavor Profile (optional)
           </label>
           <NeubrutalismSelect
             options={flavorProfileOptions}
@@ -154,7 +154,7 @@ const RecipeMood = () => {
 
         <div>
           <label className="block font-semibold font-urbanist">
-            Time of Day
+            Time of Day (optional)
           </label>
           <NeubrutalismSelect
             options={timeOfDayOptions}
@@ -171,6 +171,7 @@ const RecipeMood = () => {
             options={skillLevelOptions}
             placeholder="Select Skill Level"
             name="skillLevel"
+            required // Required field
           />
         </div>
 

@@ -27,11 +27,11 @@ const GenerateRecipe = async ({
   const prompt = `
 Generate 5 unique and detailed recipes based on the following preferences and mood:
 - **Mood**: ${params.currentMood}
-- **Available Ingredients**: ${params.availableIngredients}
+- **Available Ingredients**: ${params.availableIngredients || "None"}
 - **Cuisine Type**: ${params.cuisine}
-- **Dietary Preference**: ${params.dietaryPreference}
+- **Dietary Preference**: ${params.dietaryPreference || "None"}
 - **Meal Type**: ${params.mealType}
-- **Cooking Time**: ${params.cookingTime}
+- **Cooking Time**: ${params.cookingTime || "Any"}
 - **Spiciness Level**: ${params.spicinessLevel}
 - **Serving Size**: ${params.servingSize}
 - **Cooking Method**: ${params.cookingMethod || "Any"}  
